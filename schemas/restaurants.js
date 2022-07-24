@@ -1,25 +1,30 @@
 export default {
-  name: 'restaurants',
+  name: 'restaurant',
   type: 'document',
-	title: 'Restaurants',
+	title: 'Restaurant',
   fields: [
     {
-      title: 'Restaurant Name',
+      title: 'Name',
       name: 'restaurantName',
       type: 'string',
     },
     {
-      title: 'Restaurant Logo',
+      title: 'Logo',
       name: 'restaurantLogo',
       type: 'image',
     },
     {
-      title: 'Restaurant Website',
+      title: 'Website',
       name: 'restaurantWebsite',
       type: 'url',
       validation: Rule => Rule.uri({
         scheme: ['http', 'https']
       })
+    },
+    {
+      title: 'Feature restaurant on frontpage',
+      name: 'featured',
+      type: 'boolean',
     }
   ]
 }
