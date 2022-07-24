@@ -18,18 +18,40 @@ export default {
     type: 'boolean',
   },
   {
-    title: 'Price',
-    name: 'price',
+    title: 'Price in USD',
+    name: 'usdPrice',
     description: "Enter the amount in USD",
     type: 'number',
-    hidden: ({document}) => !document?.Price
+    hidden: ({document}) => document?.free
+  },
+  {
+    title: 'Price in MXN',
+    name: 'mxnPrice',
+    description: "Enter the amount in MXN",
+    type: 'number',
+    hidden: ({document}) => document?.free,
   },
   {
     title: "Priority",
     name: "priority",
     type: "number", // Required
-    description: "Enter a Number between 1-10 to define the priority of appeareance of the element",
-    validation: Rule => Rule.required().max(10)
+    description: "Define the priority of appeareance of the element",
+    validation: Rule => Rule.required().max(10),
+    options: {
+      layout: 'radio',
+      list:[{
+        value: 1,
+        title:'Low Priority'
+      },
+      {
+        value: 5,
+        title:'Medium Priority',
+      },
+      {
+        value: 10,
+        title:'High Priority',
+      }
+    ]},
   },
   {
     title: 'Description',
